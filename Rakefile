@@ -15,6 +15,13 @@ task :console => :environment do
   Pry.start
 end
 
+namespace :db do
+  desc 'migrate changes to your database'
+  task :migrate => :environment do
+    Student.create_table
+  end
+end
+
 desc 'allows access to the config/environment.rb'
 task :environment do
   require_relative './config/environment'
